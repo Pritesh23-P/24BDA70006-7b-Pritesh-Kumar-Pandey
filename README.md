@@ -1,16 +1,47 @@
-# React + Vite
+# AstroStore: Advanced Redux Shopping Cart 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, aesthetically pleasing e-commerce frontend demonstrating advanced state management using **Redux Toolkit** and **React**. This project serves as **Experiment 2.3.2**, focusing on creating a robust, persistent shopping cart application.
 
-Currently, two official plugins are available:
+## Aim
+Implement Redux for scalable state management in shopping carts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Objectives Achieved
+1. **Configured Redux Store:** Fully initialized setup using Redux Toolkit's `configureStore`.
+2. **Created Cart Slice:** Implemented pure reducers for state modifications mapping precise cart logic.
+3. **Cart Operations:** Complete functional abilities to Add items, Remove items, and precisely Update product quantities natively.
+4. **Component Integration:** Seamlessly connected Material-UI React components to the Redux store via `useSelector` and `useDispatch`.
+5. **State Persistence:** Cart data perfectly persists to the browser's `localStorage`, ensuring continuity even across hard page refreshes or closed tabs.
+6. **Polished UI/UX:** Designed a strictly Black, White, & Blue modern palette, utilizing rigid identical boxed containers mapped perfectly with CSS Flexbox for pixel-perfect uniformity.
 
-## React Compiler
+## Tech Stack
+- **Framework:** React 18+ (Vite)
+- **State Management:** Redux Toolkit 2.0+ & React-Redux
+- **UI Library:** Material-UI (MUI) 5.14+ & MUI Icons
+- **Styling:** Emotion & CSS Flexbox Native Spacing
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Quick Start / Installation
 
-## Expanding the ESLint configuration
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Pritesh23-P/24BDA70006-7b-Pritesh-Kumar-Pandey.git
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Navigate into the directory:**
+   ```bash
+   cd 24BDA70006-7b-Pritesh-Kumar-Pandey/redux-shopping-cart
+   ```
+
+3. **Install exact dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Boot up the local server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Let's Shop:** Open up `http://localhost:5173` in your browser.
+
+## UI/UX Architecture
+The storefront enforces a mathematically exact grid-flex architecture guaranteeing all product cards maintain strict, identical `320px x 400px` framework dimensions alongside precise `32px` equidistant gap spacing. This structure ensures a flawless geometric visual alignment wholly unaffected by varied product names or description length wrapping. 
