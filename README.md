@@ -1,6 +1,6 @@
 # AstroStore: Advanced Redux Shopping Cart 🛒
 
-A modern, aesthetically pleasing e-commerce frontend demonstrating advanced state management using **Redux Toolkit** and **React**. This project serves as **Experiment 2.3.2**, focusing on creating a robust, persistent shopping cart application.
+A modern, aesthetically pleasing e-commerce frontend demonstrating advanced state management using **Redux Toolkit** and **React**. This project serves as focusing on creating a robust, persistent shopping cart application.
 
 ## Aim
 Implement Redux for scalable state management in shopping carts.
@@ -28,7 +28,7 @@ Implement Redux for scalable state management in shopping carts.
 
 2. **Navigate into the directory:**
    ```bash
-   cd 24BDA70006-7b-Pritesh-Kumar-Pandey/redux-shopping-cart
+   cd 24BDA70006-7b-Pritesh-Kumar-Pandey
    ```
 
 3. **Install exact dependencies:**
