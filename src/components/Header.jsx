@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import useCartStore from '../store/useCartStore';
 import { AppBar, Toolbar, Typography, IconButton, Badge, Box } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 
 const Header = ({ onCartClick }) => {
-  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const totalQuantity = useCartStore((state) => state.totalQuantity);
 
   return (
     <AppBar position="sticky" elevation={0}>
@@ -27,3 +27,4 @@ const Header = ({ onCartClick }) => {
 };
 
 export default Header;
+

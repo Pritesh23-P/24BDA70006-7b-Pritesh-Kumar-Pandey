@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity } from '../store/cartSlice';
+import useCartStore from '../store/useCartStore';
 import {
   List,
   ListItem,
@@ -19,24 +18,22 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Cart = ({ onBack }) => {
-  const cartItems = useSelector((state) => state.cart.items);
-  const totalAmount = useSelector((state) => state.cart.totalAmount);
-  const dispatch = useDispatch();
+  const { items: cartItems, totalAmount, removeItem, updateQuantity } = useCartStore();
 
   const handleIncrement = (item) => {
-    dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }));
+    updateQuantity(item.id, item.quantity + 1);
   };
 
   const handleDecrement = (item) => {
     if (item.quantity === 1) {
-      dispatch(removeItem(item.id));
+      removeItem(item.id);
     } else {
-      dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+      updateQuantity(item.id, item.quantity - 1);
     }
   };
 
   const handleRemove = (id) => {
-    dispatch(removeItem(id));
+    removeItem(id);
   };
 
   return (

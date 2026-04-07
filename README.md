@@ -1,21 +1,24 @@
-# AstroStore: Advanced Redux Shopping Cart 🛒
+# AstroStore: Advanced Zustand Shopping Cart 🛒
 
-A modern, aesthetically pleasing e-commerce frontend demonstrating advanced state management using **Redux Toolkit** and **React**. This project serves as focusing on creating a robust, persistent shopping cart application.
+A modern, aesthetically pleasing e-commerce frontend demonstrating advanced state management using **Zustand**, data fetching with **Axios**, and real-time simulations via **WebSockets**. This project serves as a robust, persistent shopping cart application.
 
 ## Aim
-Implement Redux for scalable state management in shopping carts.
+Implement Zustand for lightweight and scalable state management along with asynchronous data fetching.
 
 ## Objectives Achieved
-1. **Configured Redux Store:** Fully initialized setup using Redux Toolkit's `configureStore`.
-2. **Created Cart Slice:** Implemented pure reducers for state modifications mapping precise cart logic.
-3. **Cart Operations:** Complete functional abilities to Add items, Remove items, and precisely Update product quantities natively.
-4. **Component Integration:** Seamlessly connected Material-UI React components to the Redux store via `useSelector` and `useDispatch`.
-5. **State Persistence:** Cart data perfectly persists to the browser's `localStorage`, ensuring continuity even across hard page refreshes or closed tabs.
-6. **Polished UI/UX:** Designed a strictly Black, White, & Blue modern palette, utilizing rigid identical boxed containers mapped perfectly with CSS Flexbox for pixel-perfect uniformity.
+1. **Configured Zustand Store:** Simplified state management using Zustand with `persist` middleware for local storage.
+2. **Axios Data Fetching:** Implemented asynchronous product loading from a JSON endpoint using Axios.
+3. **WebSocket Simulation:** Integrated a real-time notification system using simulated WebSockets to notify users of sales and activity.
+4. **Cart Operations:** Complete functional abilities to Add items, Remove items, and Update product quantities.
+5. **Component Integration:** Seamlessly connected Material-UI React components to the Zustand store using hooks.
+6. **State Persistence:** Cart data perfectly persists to the browser's `localStorage` via Zustand middleware.
+7. **Polished UI/UX (Unchanged):** Maintained the strictly Black, White, & Blue modern palette with pixel-perfect Flexbox uniformity.
 
 ## Tech Stack
 - **Framework:** React 18+ (Vite)
-- **State Management:** Redux Toolkit 2.0+ & React-Redux
+- **State Management:** Zustand (with Persist Middleware)
+- **Data Fetching:** Axios
+- **Real-time:** WebSockets (Simulated with Snackbars)
 - **UI Library:** Material-UI (MUI) 5.14+ & MUI Icons
 - **Styling:** Emotion & CSS Flexbox Native Spacing
 

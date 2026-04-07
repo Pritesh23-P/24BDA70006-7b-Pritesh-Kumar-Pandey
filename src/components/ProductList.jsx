@@ -1,7 +1,7 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../store/cartSlice';
-import { Card, CardContent, Typography, CardActions, Button, Container, Box } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import useCartStore from '../store/useCartStore';
+import { Card, CardContent, Typography, CardActions, Button, Container, Box, CircularProgress } from '@mui/material';
 
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
@@ -10,22 +10,46 @@ import WatchIcon from '@mui/icons-material/Watch';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
-const DUMMY_PRODUCTS = [
-  { id: 'p1', price: 199.99, name: 'Wireless Headphones', description: 'Noise-cancelling over-ear headphones.', icon: HeadphonesIcon },
-  { id: 'p2', price: 699.99, name: 'Smartphone', description: 'Latest 5G smartphone with stunning camera.', icon: SmartphoneIcon },
-  { id: 'p3', price: 1299.99, name: 'Laptop Pro', description: 'High-performance laptop for developers.', icon: LaptopMacIcon },
-  { id: 'p4', price: 299.99, name: 'Smart Watch', description: 'Fitness tracking and notifications on wrist.', icon: WatchIcon },
-  { id: 'p5', price: 899.99, name: 'Digital Camera', description: 'Mirrorless camera for professional photos.', icon: CameraAltIcon },
-  { id: 'p6', price: 499.99, name: 'Gaming Console', description: 'Next-gen gaming experience.', icon: SportsEsportsIcon },
-];
+const ICON_MAP = {
+  HeadphonesIcon: HeadphonesIcon,
+  SmartphoneIcon: SmartphoneIcon,
+  LaptopMacIcon: LaptopMacIcon,
+  WatchIcon: WatchIcon,
+  CameraAltIcon: CameraAltIcon,
+  SportsEsportsIcon: SportsEsportsIcon,
+};
 
 const ProductList = () => {
-  const dispatch = useDispatch();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const addItem = useCartStore((state) => state.addItem);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('/products.json');
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleAddToCart = (product) => {
-    const { id, price, name, description } = product;
-    dispatch(addItem({ id, price, name, description }));
+    addItem(product);
   };
+
+  if (loading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
+        <CircularProgress color="primary" />
+      </Box>
+    );
+  }
 
   return (
     <Container sx={{ mt: 2, pb: 6 }}>
@@ -33,13 +57,9 @@ const ProductList = () => {
         Featured Products
       </Typography>
       
-      {/* 
-        Using Flexbox with a precise 'gap' guarantees equal and consistent spacing on all sides. 
-        We use a fixed width and height on Cards to absolutely eliminate any sizing disparity.
-      */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center' }}>
-        {DUMMY_PRODUCTS.map((product) => {
-          const Icon = product.icon;
+        {products.map((product) => {
+          const Icon = ICON_MAP[product.icon] || HeadphonesIcon;
           return (
             <Card 
               key={product.id} 
